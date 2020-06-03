@@ -4,8 +4,8 @@ import Counter from "./Components/Counter";
 
 function App() {
   return (
-    <div className='App'>
-      <header className='App-header'>
+    <div className="App">
+      <header className="App-header">
         <h2>Counter App</h2>
       </header>
       <Counter />
