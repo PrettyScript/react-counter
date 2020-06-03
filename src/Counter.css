@@ -10,16 +10,34 @@
   text-align: center;
   padding-top: 10px;
   align-content: center;
-  animation: move 0.25s ease-out;
 }
 
-@keyframes move {
+.animate-number-up {
+  animation: moveUp 0.25s ease-out;
+}
+
+.animate-number-down {
+  animation: moveDown 0.25s ease-out;
+}
+
+@keyframes moveUp {
   from {
     transform: translateY(0);
     opacity: 1;
   }
   to {
     transform: translateY(-50px);
+    opacity: 0;
+  }
+}
+
+@keyframes moveDown {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(50px);
     opacity: 0;
   }
 }

@@ -1,32 +1,44 @@
 import React, { Component } from "react";
 import "../Counter.css";
-import { motion } from "framer-motion";
+
+//TODO:
+// - delete framer motion
+// - delete styled coponent
+// - refactor code to use hooks
 
 export default class ButtonPad extends Component {
   state = {
-    count: 0
+    count: 0,
+    animate: false
   };
 
   handleIncrement = () => {
-    // console.log("Increment");
-    this.setState({ count: this.state.count + 1 });
+    this.handleAnimationAndValueChange(1, "up");
   };
 
   handleDecrement = () => {
-    // console.log("Decrement");
-    this.setState({ count: this.state.count - 1 });
+    this.handleAnimationAndValueChange(-1, "down");
   };
 
   handleReset = () => {
-    // console.log("Reset");
     this.setState({ count: 0 });
   };
 
   handleDoubleIncrement = () => {
-    this.setState({ count: this.state.count + 2 });
+    this.handleAnimationAndValueChange(2, "up");
   };
 
   displayCount = () => this.state.count;
+
+  handleAnimationAndValueChange = (inc, dir) => {
+    document.getElementById(
+      "number"
+    ).className = `counter-text animate-number-${dir}`;
+    setTimeout(() => {
+      this.setState({ count: this.state.count + inc });
+      document.getElementById("number").className = "counter-text";
+    }, 250);
+  };
 
   render() {
     return (
@@ -34,12 +46,9 @@ export default class ButtonPad extends Component {
         <label onClick={this.handleIncrement}>+</label>
         <label onClick={this.handleDoubleIncrement}>+2</label>
         <div className='number'>
-          <motion.div
-            animate={{ scale: 2, y: -30, opacity: 0.0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <h2>{this.displayCount()}</h2>
-          </motion.div>
+          <h2 id='number' onChange={this.handleAnimationAndValueChange}>
+            {this.displayCount()}
+          </h2>
         </div>
         <label onClick={this.handleDecrement}>-</label>
         <label onClick={this.handleReset}>Reset</label>
