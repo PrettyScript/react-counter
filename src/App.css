@@ -1,6 +1,6 @@
-.App {
+/* .App {
   text-align: center;
-}
+} */
 
 .App-logo {
   height: 40vmin;
@@ -14,14 +14,17 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  /* background-color: #282c34; */
   /* min-height: 100vh; */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  font-family: "Russo One", sans-serif;
+  font-size: calc(20px + 2vmin);
+  color: #689df8;
+  text-shadow: 0px 0px 2px black;
+  /* z-index: -1; */
 }
 
 .App-link {
